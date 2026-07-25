@@ -55,7 +55,7 @@ export default function About() {
             <div className="rounded-[40px] overflow-hidden shadow-2xl">
 
               <img
-                src="/images/about-doctor.jpg"
+                src="/image/paliimg1.jpg"
                 alt="About PalliAssist"
                 className="w-full object-cover"
               />

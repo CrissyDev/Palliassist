@@ -145,7 +145,7 @@ export default function Hero() {
                   repeat: Infinity,
                   duration: 4,
                 }}
-                src="/images/doctor.png"
+                src="/image/pall2.jpg"
                 alt="Doctor"
                 className="relative z-20 w-[440px] object-cover"
               />

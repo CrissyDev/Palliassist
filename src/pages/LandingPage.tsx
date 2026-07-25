@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import About from "../components/About";
 
 export default function LandingPage() {
   return (
@@ -8,12 +9,7 @@ export default function LandingPage() {
 
       <Hero />
 
-      <section
-        id="about"
-        className="h-screen flex items-center justify-center"
-      >
-        ABOUT SECTION
-      </section>
+      <About />
 
       <section
         id="services"

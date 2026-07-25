@@ -55,7 +55,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
 
           <img
-            src="/images/logo.png"
+            src="/image/logo1.png"
             alt="PalliAssist"
             className="w-12 h-12 object-contain"
           />

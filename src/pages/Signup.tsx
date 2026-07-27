@@ -1,8 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
 import { User, Mail, Eye, ArrowLeft } from "lucide-react";
 
 export default function Signup() {
   const navigate = useNavigate();
+
+  const handleSignup = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Temporary navigation
+    // Later this will save the user first
+    navigate("/dashboard");
+  };
 
   return (
     <div className="min-h-screen w-full bg-[#EBF1F6] flex items-center justify-center p-4 lg:p-8 font-sans">
@@ -49,7 +58,10 @@ export default function Signup() {
             </div>
 
             {/* Form */}
-            <form className="space-y-4 mt-8 max-w-md">
+            <form
+              onSubmit={handleSignup}
+              className="space-y-4 mt-8 max-w-md"
+            >
               {/* Full Name Input */}
               <div className="relative">
                 <input
@@ -137,7 +149,6 @@ export default function Signup() {
 
         {/* RIGHT VISUAL ARTWORK PANEL */}
         <div className="hidden lg:relative lg:flex bg-gradient-to-br from-blue-600 via-blue-800 to-indigo-900 overflow-hidden items-end p-8">
-          {/* PLACE YOUR BACKGROUND IMAGE HERE */}
           <img
             src="/image/limage.jpg"
             alt="PalliAssist Visual Artwork"

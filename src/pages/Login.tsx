@@ -1,8 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
+import type { FormEvent } from "react";
 import { Mail, Eye, ArrowLeft } from "lucide-react";
 
 export default function Login() {
   const navigate = useNavigate();
+
+  const handleLogin = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    navigate("/dashboard");
+  };
 
   return (
     <div className="min-h-screen w-full bg-[#EBF1F6] flex items-center justify-center p-4 lg:p-8 font-sans">
@@ -49,7 +55,10 @@ export default function Login() {
             </div>
 
             {/* Form */}
-            <form className="space-y-4 mt-8 max-w-md">
+            <form
+              onSubmit={handleLogin}
+              className="space-y-4 mt-8 max-w-md"
+            >
               {/* Email Input */}
               <div className="relative">
                 <input
@@ -141,7 +150,6 @@ export default function Login() {
 
         {/* RIGHT VISUAL ARTWORK PANEL */}
         <div className="hidden lg:relative lg:flex bg-gradient-to-br from-blue-600 via-blue-800 to-indigo-900 overflow-hidden items-end p-8">
-          {/* PLACE YOUR BACKGROUND IMAGE HERE */}
           <img
             src="/image/limage.jpg"
             alt="PalliAssist Visual Artwork"

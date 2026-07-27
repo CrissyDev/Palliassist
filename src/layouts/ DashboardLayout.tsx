@@ -8,14 +8,20 @@ interface DashboardLayoutProps {
 
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
-    <div className="min-h-screen bg-slate-100 flex">
+    <div className="min-h-screen bg-slate-100">
+      {/* Sidebar */}
       <Sidebar />
 
-      <div className="flex flex-col flex-1 lg:ml-72">
+      {/* Main Content */}
+      <div className="lg:ml-72 min-h-screen flex flex-col">
+        {/* Top Navigation */}
         <Topbar />
 
-        <main className="flex-1 overflow-y-auto p-6 lg:p-8">
-          {children}
+        {/* Page Content */}
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+          <div className="mx-auto max-w-7xl">
+            {children}
+          </div>
         </main>
       </div>
     </div>

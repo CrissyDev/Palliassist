@@ -1,5 +1,4 @@
 import DashboardLayout from "../layouts/ DashboardLayout";
-
 import VoiceAssistant from "../dashboards/VoiceAssistant";
 import AIInsights from "../dashboards/AIInsights";
 import Appointments from "../dashboards/Appointments";
@@ -9,117 +8,98 @@ import QuickActions from "../dashboards/QuickActions";
 import SymptomChart from "../dashboards/SymptomChart";
 
 import {
-  Users,
-  CalendarDays,
-  Activity,
-  HeartPulse,
-} from "lucide-react";
+  FaHeartPulse,
+  FaPills,
+  FaCalendarCheck,
+  FaTriangleExclamation,
+} from "react-icons/fa6";
 
 const stats = [
   {
-    title: "Patients",
-    value: "128",
-    icon: Users,
+    title: "Patient Wellness",
+    value: "Stable",
+    icon: FaHeartPulse,
+    color: "bg-emerald-500",
+  },
+  {
+    title: "Doses Given Today",
+    value: "4 / 5",
+    icon: FaPills,
     color: "bg-blue-500",
   },
   {
-    title: "Appointments",
-    value: "18",
-    icon: CalendarDays,
-    color: "bg-green-500",
+    title: "Next Check-in",
+    value: "2:30 PM",
+    icon: FaCalendarCheck,
+    color: "bg-cyan-500",
   },
   {
-    title: "Active Care Plans",
-    value: "94",
-    icon: HeartPulse,
-    color: "bg-pink-500",
-  },
-  {
-    title: "Critical Alerts",
-    value: "6",
-    icon: Activity,
-    color: "bg-red-500",
+    title: "Caregiver Alerts",
+    value: "1 Active",
+    icon: FaTriangleExclamation,
+    color: "bg-amber-500",
   },
 ];
 
 const Dashboard = () => {
   return (
     <DashboardLayout>
-      {/* Welcome Banner */}
-
+      {/* Caregiver Welcome Banner */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl text-white p-8 mb-8 shadow-lg">
-
         <h2 className="text-3xl font-bold">
-          Welcome back 👋
+          Jambo, Caregiver 👋
         </h2>
 
-        <p className="mt-3 text-blue-100 max-w-2xl">
-          Your AI-powered palliative care dashboard helps you monitor
-          patients, communicate through voice, manage appointments,
-          and receive intelligent healthcare insights.
+        <p className="mt-3 text-blue-100 max-w-2xl text-base leading-relaxed">
+          Your daily PalliAssist companion is ready. Track symptoms, manage medication schedules, communicate via voice assistance, and stay in touch with primary care clinicians.
         </p>
-
       </div>
 
-      {/* Statistics */}
-
+      {/* Caregiver Quick Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
-
         {stats.map((stat) => {
           const Icon = stat.icon;
 
           return (
             <div
               key={stat.title}
-              className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-lg transition"
+              className="bg-white rounded-2xl shadow-sm p-6 hover:shadow-lg transition border border-slate-100"
             >
               <div className="flex justify-between items-center">
-
                 <div>
-
-                  <p className="text-slate-500">
+                  <p className="text-slate-500 text-sm font-medium">
                     {stat.title}
                   </p>
 
-                  <h3 className="text-3xl font-bold mt-2">
+                  <h3 className="text-2xl font-extrabold mt-2 text-slate-800">
                     {stat.value}
                   </h3>
-
                 </div>
 
                 <div
-                  className={`${stat.color} w-14 h-14 rounded-2xl flex items-center justify-center text-white`}
+                  className={`${stat.color} w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-md`}
                 >
-                  <Icon size={28} />
+                  <Icon size={24} />
                 </div>
-
               </div>
             </div>
           );
         })}
-
       </div>
 
-      {/* Dashboard Grid */}
-
+      {/* Main Caregiver Grid */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-
-        {/* Left */}
-
+        {/* Left Column */}
         <div className="xl:col-span-2 space-y-6">
-
           <VoiceAssistant />
 
           <SymptomChart />
 
           <Appointments />
-
         </div>
 
-        {/* Right */}
-
+        {/* Right Column */}
         <div className="space-y-6">
-
           <AIInsights />
 
           <MedicationCard />
@@ -127,11 +107,8 @@ const Dashboard = () => {
           <Notifications />
 
           <QuickActions />
-
         </div>
-
       </div>
-
     </DashboardLayout>
   );
 };
